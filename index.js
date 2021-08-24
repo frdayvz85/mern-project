@@ -20,29 +20,30 @@ app.get('/', (req, res) => {
 })
 
 
-const PORT = process.env.PORT|| 5000;
-const DATABASE_URL = 'mongodb+srv://postshare:maga2468@cluster0.mo4b7.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'
+// const PORT = process.env.PORT|| 5000;
+// const DATABASE_URL = 'mongodb+srv://postshare:maga2468@cluster0.mo4b7.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'
 
-mongoose.connect(DATABASE_URL, { useNewUrlParser: true, useUnifiedTopology: true })
-  .then(() => app.listen(process.env.PORT, () => console.log(`Server Running on Port: http://localhost:${process.env.PORT}`)))
-  .catch((error) => console.log(`${error} did not connect`));
+// mongoose.connect(DATABASE_URL, { useNewUrlParser: true, useUnifiedTopology: true })
+//   .then(() => app.listen(process.env.PORT, () => console.log(`Server Running on Port: http://localhost:${process.env.PORT}`)))
+//   .catch((error) => console.log(`${error} did not connect`));
 
-mongoose.set('useFindAndModify', false);
+// mongoose.set('useFindAndModify', false);
 // Connect to Database
 // mongoose.connect(process.env.DATABASE_URL, {useNewUrlParser:true, useUnifiedTopology:true})
 //     .then(()=>app.listen(PORT,()=>console.log(`Server running at http://localhost:${PORT}`)))
 //     .catch(err=>console.log(err.message))
 
 
-// mongoose.connect(process.env.DATABASE_URL, { useNewUrlParser: true, useUnifiedTopology: true }, () => {
-//     try {
-//         console.log("Connected to DB");
-//     } catch (error) {
-//         console.log(error);
-//     }
-// });
+mongoose.connect(process.env.DATABASE_URL, { useNewUrlParser: true, useUnifiedTopology: true }, () => {
+    try {
+        console.log("Connected to DB");
+    } catch (error) {
+        console.log(error);
+    }
+});
 
-// //start on server
-// app.listen(PORT, () => {
-//     console.log(`Server running at http://localhost:${PORT}`);
-// })
+//start on server
+app.listen(process.env.PORT, () => {
+    console.log(`Server running at http://localhost:${process.env.PORT}`);
+})
+mongoose.set('useFindAndModify', false);
