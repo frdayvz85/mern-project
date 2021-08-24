@@ -25,16 +25,28 @@ app.get('/', (req, res) => {
 //     .then(()=>app.listen(PORT,()=>console.log(`Server running at http://localhost:${PORT}`)))
 //     .catch(err=>console.log(err.message))
 
+mongoose
+  .connect(process.env.DATABASE_URL, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
+  .then(() => {
+    app.listen(process.env.PORT, () => console.log(`Server running on port: ${process.env.PORT} `));
+  })
+  .catch((error) => {
+    console.error(error.message);
+  });
 
-mongoose.connect(process.env.DATABASE_URL, {useNewUrlParser:true, useUnifiedTopology:true},() => {
-    try {
-        console.log("Connected to DB");
-    } catch (error) {
-        console.log(error);
-    }
-});
+mongoose.set("useFindAndModify", false);
+// mongoose.connect(process.env.DATABASE_URL, {useNewUrlParser:true, useUnifiedTopology:true},() => {
+//     try {
+//         console.log("Connected to DB");
+//     } catch (error) {
+//         console.log(error);
+//     }
+// });
 
-//start on server
-app.listen(process.env.PORT, () => {
-    console.log(`Server running at http://localhost:${process.env.PORT}`);
-})
+// //start on server
+// app.listen(process.env.PORT, () => {
+//     console.log(`Server running at http://localhost:${process.env.PORT}`);
+// })
