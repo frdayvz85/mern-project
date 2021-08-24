@@ -16,6 +16,9 @@ const PORT = process.env.PORT || 5000;
 
 //Routes
 app.use('/posts', postRoutes);
+app.get('/', (req, res) => {
+    res.send('Post share API.')
+})
 
 
 // Connect to Database
