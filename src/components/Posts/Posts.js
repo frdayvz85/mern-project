@@ -11,7 +11,7 @@ const Posts = ({setCurrentId}) => {
     return (
         <Grid container className={classes.postContainer} spacing={2} m={1}>
             {
-                !posts.length ? <CircularProgress /> : (
+                !posts.length ? <CircularProgress className={classes.loading} /> : (
                     posts.map(post =>(
                         <Post key={post._id} post={post} setCurrentId={setCurrentId} />
                     ))

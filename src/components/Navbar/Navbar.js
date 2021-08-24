@@ -19,7 +19,7 @@ const Navbar = ({ open, handleOpen, handleClose}) => {
                     <Typography variant="h6" className={classes.title}>
                         BLOG-F
                     </Typography>
-                    <Button onClick={handleOpen} type="button" color="inherit" className={classes.addBtn} spacing={2}><AddIcon /> New Post</Button>
+                    {/* <Button onClick={handleOpen} type="button" color="inherit" className={classes.addBtn} spacing={2}><AddIcon /> New Post</Button> */}
                     <Button color="inherit">Login</Button>
                 </Toolbar>
             </AppBar>
