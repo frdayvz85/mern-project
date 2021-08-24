@@ -12,7 +12,6 @@ app.use(bodyParser.json({ limit:'30mb', extended:true}));
 app.use(bodyParser.urlencoded({ limit:'30mb', extended:true}));
 app.use(cors());
 
-const PORT = process.env.PORT || 5000;
 
 //Routes
 app.use('/posts', postRoutes);
@@ -37,5 +36,5 @@ mongoose.connect(process.env.DATABASE_URL, {useNewUrlParser:true, useUnifiedTopo
 
 //start on server
 app.listen(process.env.PORT, () => {
-    console.log(`Server running at http://localhost:${PORT}`);
+    console.log(`Server running at http://localhost:${process.env.PORT}`);
 })
